@@ -25,7 +25,7 @@ SECRET_KEY = 'hffjot+&m4j!j6j3u)l)(eg^u*y+8@*wmact5qsld5_5w8kf%j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ltdiadams.pythonanywhere.com', 'localhost']
+ALLOWED_HOSTS = ['983a8e4a.ngrok.io', 'localhost']
 
 
 # Application definition
@@ -81,8 +81,9 @@ DATABASES = {
         'NAME': 'MyDB',
         'USER':'postgres',
         'PASSWORD':'postgres',
-        'HOST':'ltdiadams-1592.postgres.pythonanywhere-services.com'
-        'PORT': '11592'
+        # 'HOST':'ltdiadams-1592.postgres.pythonanywhere-services.com',
+        # 'PORT': '11592'
+        'HOST': 'localhost'
     }
 }
 

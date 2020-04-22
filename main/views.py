@@ -44,8 +44,17 @@ from django.core.exceptions import ValidationError
 # import pymsgbox
 from .models import Todo
 from .forms import Post
+
+from twilio.rest import Client
 # Create your views here.
 
+# codes required by twilio. These are specific to the twilio account being used.
+account_sid = 'AC4141b76e99a2898f4f535c7e026a37ab'
+auth_token = '9bccc5fc4f1105e4c12bb1e9e99fc4a4'
+
+client = Client(account_sid, auth_token)
+
+sender = '+12052728434'
 
 def list_todo_items(request):
     context = {
@@ -58,7 +67,9 @@ def list_todo_items(request):
     # count = Todo.objects.count()
     return render(request, 'index.html', context)
 
-
+# use twilio to send message to the inputted number!
+# probably don't need to access the database at all :)
+# want to send to todo.objects.
 def insert_todo_item(request: HttpRequest):
     todo = Todo(content=request.POST['content'])
     try:
@@ -69,6 +80,14 @@ def insert_todo_item(request: HttpRequest):
         return redirect('/main/list/')
 
     todo.save()
+    # reciever = '+15063270183' #WORKSSSSSSSS
+    reciever = Todo.objects.values_list('content', flat=True).distinct()
+    # reciever = Todo.objects.filter
+
+    text = 'You are awesome!'
+    client.messages.create(to=reciever, from_=sender, body=text)
+
+
     return redirect('/main/list/')
 
 def delete_todo_item(request,todo_id):
