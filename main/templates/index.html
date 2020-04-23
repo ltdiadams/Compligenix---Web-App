@@ -30,7 +30,7 @@
                     <div class="card-body">
                         <ul class="list-group">
                             <li class="list-group-item">
-                                <form action="{% url 'insert_todo_item' %}" method="post" autocomplete="off">
+                                <form action="{% url 'insert_phone_item' %}" method="post" autocomplete="off">
                                     {% csrf_token %}
 
                                     <div class="input-group">
@@ -49,11 +49,11 @@
                             </li>
 
 
-                            <!-- {% for todo in todo_list %} -->
+                            <!-- {% for phone in phone_list %} -->
 
-                            <!-- <li class="list-group-item">{{todo.content}} -->
+                            <!-- <li class="list-group-item">{{phone.content}} -->
 
-                                <!-- <form action="{% url 'delete_todo_item' todo.id %}" method="post" class="float-right d-inline"> -->
+                                <!-- <form action="{% url 'delete_phone_item' phone.id %}" method="post" class="float-right d-inline"> -->
                                     <!-- {% csrf_token %} -->
                                     <!-- {{form.as_p}} -->
                                     <!-- <button type="submit" class="btn"> -->
