@@ -4,13 +4,14 @@ from django.core.exceptions import ValidationError
 # import pymsgbox
 from .models import Phone
 from .forms import Post
+import subprocess
 
 from twilio.rest import Client
 # Create your views here.
 
 # codes required by twilio. These are specific to the twilio account being used.
-account_sid = ''
-auth_token = ''
+account_sid = 'AC4141b76e99a2898f4f535c7e026a37ab'
+auth_token = 'b19e3f45d0cf722adb26b0f643d72dce'
 
 client = Client(account_sid, auth_token)
 
@@ -42,7 +43,12 @@ def insert_phone_item(request: HttpRequest):
     reciever = Phone.objects.values_list('content', flat=True).distinct()
     # reciever = Todo.objects.filter
 
-    text = 'You are awesome!'
+    subprocess.call(["python", "create_model.py"])
+
+    with open('textgenrnn_texts.txt', 'r') as myfile:
+        text = myfile.read()
+
+    # text = "Yoooo"
     client.messages.create(to=reciever, from_=sender, body=text)
 
 
