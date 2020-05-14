@@ -15,6 +15,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+
 </head>
 
 <body class="bg-light">
@@ -34,7 +35,7 @@
                                     {% csrf_token %}
 
                                     <div class="input-group">
-                                        <input type="text" pattern="^\+?1?\d{9,15}$" class="form-control" name="content" placeholder="+12345678102">
+                                        <input type="text" pattern="^\+?1?\d{9,15}$" class="form-control" name="content" placeholder="+12345678910">
                                         <div class="input-group-append text-info">
                                             <span class="input-group-text bg-white py-0">
                                                 <button type="submit" class="btn btn-sm text-primary">
@@ -43,8 +44,12 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <span class="font-italic">There are currently {{ count }} subscribers.</span>
+                                    <span style="font-weight:bold;"> I've sent out {{ count }} compliments! I love my job!</span>
                                 </form>
+
+                              <div class="card-body">
+                                <h3 style="color:#001299; font-family:Didot;"><center> I want to brighten your day! Just type in your number and wait for my text -🤖 </center></h3>
+                              </div>
 
                             </li>
 
@@ -63,18 +68,17 @@
 
                             <!-- </li> -->
 
-
-
                             <!-- {% endfor %} -->
                         </ul>
                     </div>
                 </div>
-
+                <!-- <h1> </h1>
+                <h3 style="color:#9df700";><center> I'm not the fastest robot, it takes me some time to come up with the perfect compliment! If you've submitted once, I'll need about 30 seconds before you can get another unique compliment! </center></h3>
+                <h3 style="color:#001299";><center>If you submit again too early, I'll just send you the same one you just got, won't make it any less true ;) thanks for your patience!</center></h3> -->
 
             </div>
         </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -84,6 +88,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bubbly-bg@0.2.3/dist/bubbly-bg.js"></script>
+    <script>bubbly({
+      bubbles: 150,
+      colorStart: "#2741e8",
+      colorStop: "#0dd7ff"
+    });</script>
 </body>
 
 </html>
