@@ -13,8 +13,8 @@ from twilio.rest import Client
 # Create your views here.
 
 # codes required by twilio. These are specific to the twilio account being used.
-account_sid = ''
-auth_token = ''
+account_sid = 'AC4141b76e99a2898f4f535c7e026a37ab'
+auth_token = 'bb4932b69d68ee4aca772d6ed685460c'
 
 
     # will just keep running in the background
@@ -28,7 +28,7 @@ auth_token = ''
 
 client = Client(account_sid, auth_token)
 
-sender = ''
+sender = '+12052728434'
 
 def list_phone_items(request):
     context = {
@@ -49,7 +49,7 @@ def insert_phone_item(request: HttpRequest):
 
     except ValidationError:
         # pymsgbox.alert('ValidationError! Phone number must be entered in the format: +999999999. Up to 15 digits allowed.', 'Title')
-        return redirect('/main/list/')
+        return redirect('/')
 
     phone.save()
 
@@ -68,12 +68,12 @@ def insert_phone_item(request: HttpRequest):
     # use django background tasks!!!!!!! https://django-background-tasks.readthedocs.io/en/latest/
     # to make the texts daily, etc.
 
-    return redirect('/main/list/')
+    return redirect('/')
 
 def delete_phone_item(request,phone_id):
     todo_to_delete = Phone.objects.get(id=phone_id)
     todo_to_delete.delete()
-    return redirect('/main/list/')
+    return redirect('/')
 
 #---------------------------------------------------------------------------------------------
 # NOTE TO SELF: multithreading is NOT the solution, created an unkillable process
